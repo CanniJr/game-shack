@@ -1,3 +1,4 @@
+import { Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import apiClient from "../api-client/api-client";
 
@@ -19,15 +20,18 @@ const GameGrid = () => {
 		apiClient
 			.get<FetchGameResponse>("/games")
 			.then((resp) => setGames(resp.data.results))
-			.catch((err) => console.log(err));
+			.catch((err) => setError(err.message));
 	}, []);
 
 	return (
-		<ul>
-			{games.map((game) => (
-				<li key={game.id}>{game.name}</li>
-			))}
-		</ul>
+		<>
+			{error && <Text>{error}</Text>}
+			<ul>
+				{games.map((game) => (
+					<li key={game.id}>{game.name}</li>
+				))}
+			</ul>
+		</>
 	);
 };
 
