@@ -8,9 +8,13 @@ import {
 	Text,
 } from "@chakra-ui/react";
 import getCroppedImageUrl from "../api-client/image-url";
-import useGenres from "../hooks/useGenres";
+import useGenres, { Genre } from "../hooks/useGenres";
 
-const GenreList = () => {
+interface GenreProps {
+	onSelectGenre: (genre: Genre) => void;
+}
+
+const GenreList = ({ onSelectGenre }: GenreProps) => {
 	const { data, isLoading, error } = useGenres();
 
 	if (error) return null;
@@ -27,7 +31,7 @@ const GenreList = () => {
 							borderRadius={4}
 						/>
 						<Button
-							onClick={() => console.log(genre)}
+							onClick={() => onSelectGenre(genre)}
 							fontSize="lg"
 							variant="link"
 						>
