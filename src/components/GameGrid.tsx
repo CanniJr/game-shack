@@ -27,7 +27,7 @@ const GameGrid = ({ selectedGenre, selectedPlatform }: GameGridProps) => {
 					))}
 				{data.map((game) => (
 					<GameCardContainer key={game.id}>
-						<GameCard game={game} />
+						<GameCard selectedPlatform={selectedPlatform} game={game} />
 					</GameCardContainer>
 				))}
 			</SimpleGrid>

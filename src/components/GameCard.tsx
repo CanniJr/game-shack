@@ -3,12 +3,14 @@ import type { Game } from "../hooks/useGames";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../api-client/image-url";
+import { Platform } from "../hooks/usePlatforms";
 
 interface GameCardProps {
 	game: Game;
+	selectedPlatform: Platform | null;
 }
 
-const GameCard = ({ game }: GameCardProps) => {
+const GameCard = ({ game, selectedPlatform }: GameCardProps) => {
 	const { name, background_image, parent_platforms, metacritic } = game;
 	return (
 		<Card>
@@ -17,6 +19,7 @@ const GameCard = ({ game }: GameCardProps) => {
 				<Heading fontSize="2xl">{name}</Heading>
 				<HStack justifyContent="space-between">
 					<PlatformIconList
+						selectedPlatform={selectedPlatform}
 						platforms={parent_platforms.map((platform) => platform.platform)}
 					/>
 					<CriticScore score={metacritic} />
