@@ -4,6 +4,7 @@ import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../api-client/image-url";
 import { Platform } from "../hooks/usePlatforms";
+import GameRankEmoji from "./GameRankEmoji";
 
 interface GameCardProps {
 	game: Game;
@@ -16,14 +17,17 @@ const GameCard = ({ game, selectedPlatform }: GameCardProps) => {
 		<Card>
 			<Image src={getCroppedImageUrl(background_image)} h={40} alt="" />
 			<CardBody>
-				<Heading fontSize="2xl">{name}</Heading>
-				<HStack justifyContent="space-between">
+				<HStack marginBottom={2} justifyContent="space-between">
 					<PlatformIconList
 						selectedPlatform={selectedPlatform}
 						platforms={parent_platforms.map((platform) => platform.platform)}
 					/>
 					<CriticScore score={metacritic} />
 				</HStack>
+				<Heading fontSize="2xl">
+					{name}
+					<GameRankEmoji rating={game.rating_top} />
+				</Heading>
 			</CardBody>
 		</Card>
 	);
