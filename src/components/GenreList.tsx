@@ -8,7 +8,7 @@ import {
 	Spinner,
 	Text,
 } from "@chakra-ui/react";
-import getCroppedImageUrl from "../api-client/image-url";
+import getCroppedImageUrl from "../services/image-url";
 import useGenres, { Genre } from "../hooks/useGenres";
 
 interface GenreProps {
@@ -28,7 +28,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: GenreProps) => {
 				Genres
 			</Heading>
 			<List>
-				{data.map((genre) => (
+				{data?.results.map((genre) => (
 					<ListItem key={genre.id} paddingY="5px">
 						<HStack>
 							<Image
