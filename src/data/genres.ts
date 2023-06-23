@@ -1,3 +1,4 @@
+// static data to show while loading from API
 export default [
 	{
 		id: 4,
