@@ -7,30 +7,30 @@ import { Platform } from "../hooks/usePlatforms";
 import GameRankEmoji from "./GameRankEmoji";
 
 interface GameCardProps {
-	game: Game;
-	selectedPlatform: Platform | null;
+  game: Game;
+  selectedPlatformId?: number;
 }
 
-const GameCard = ({ game, selectedPlatform }: GameCardProps) => {
-	const { name, background_image, parent_platforms, metacritic } = game;
-	return (
-		<Card>
-			<Image src={getCroppedImageUrl(background_image)} h={40} alt="" />
-			<CardBody>
-				<HStack marginBottom={2} justifyContent="space-between">
-					<PlatformIconList
-						selectedPlatform={selectedPlatform}
-						platforms={parent_platforms.map((platform) => platform.platform)}
-					/>
-					<CriticScore score={metacritic} />
-				</HStack>
-				<Heading fontSize="2xl">
-					{name}
-					<GameRankEmoji rating={game.rating_top} />
-				</Heading>
-			</CardBody>
-		</Card>
-	);
+const GameCard = ({ game, selectedPlatformId }: GameCardProps) => {
+  const { name, background_image, parent_platforms, metacritic } = game;
+  return (
+    <Card>
+      <Image src={getCroppedImageUrl(background_image)} h={40} alt="" />
+      <CardBody>
+        <HStack marginBottom={2} justifyContent="space-between">
+          <PlatformIconList
+            selectedPlatformId={selectedPlatformId}
+            platforms={parent_platforms.map((platform) => platform.platform)}
+          />
+          <CriticScore score={metacritic} />
+        </HStack>
+        <Heading fontSize="2xl">
+          {name}
+          <GameRankEmoji rating={game.rating_top} />
+        </Heading>
+      </CardBody>
+    </Card>
+  );
 };
 
 export default GameCard;
