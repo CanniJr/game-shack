@@ -1,1 +1,3 @@
-This project will add React Query to replace useEffect()
+## Data Fetching and Query using React Query
+
+## Adding Redux for state management.
