@@ -8,13 +8,6 @@ import SortSelector from "./components/SortSelector";
 import "./App.css";
 import GameHeading from "./components/GameHeading";
 
-export interface GameQuery {
-  genreId?: number;
-  platformId?: number;
-  ordering: string;
-  searchValue: string;
-}
-
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
