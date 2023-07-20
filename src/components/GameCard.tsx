@@ -5,13 +5,13 @@ import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/image-url";
 import { Platform } from "../hooks/usePlatforms";
 import GameRankEmoji from "./GameRankEmoji";
+import useGameQueryStore from "../store";
 
 interface GameCardProps {
   game: Game;
-  selectedPlatformId?: number;
 }
 
-const GameCard = ({ game, selectedPlatformId }: GameCardProps) => {
+const GameCard = ({ game }: GameCardProps) => {
   const { name, background_image, parent_platforms, metacritic } = game;
   return (
     <Card>
@@ -19,7 +19,6 @@ const GameCard = ({ game, selectedPlatformId }: GameCardProps) => {
       <CardBody>
         <HStack marginBottom={2} justifyContent="space-between">
           <PlatformIconList
-            selectedPlatformId={selectedPlatformId}
             platforms={parent_platforms.map((platform) => platform.platform)}
           />
           <CriticScore score={metacritic} />

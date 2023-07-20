@@ -12,16 +12,14 @@ import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { Platform } from "../hooks/usePlatforms";
 import { IconType } from "react-icons";
+import useGameQueryStore from "../store";
 
 interface PlatformIconProps {
   platforms: Platform[];
-  selectedPlatformId?: number;
 }
 
-const PlatformIconList = ({
-  platforms,
-  selectedPlatformId,
-}: PlatformIconProps) => {
+const PlatformIconList = ({ platforms }: PlatformIconProps) => {
+  const selectedPlatformId = useGameQueryStore((s) => s.gameQuery.platformId);
   const iconMap: { [key: string]: IconType } = {
     pc: FaWindows,
     mac: FaApple,
