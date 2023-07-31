@@ -1,9 +1,9 @@
-import { Button, Heading, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
+import { Box, Button, Heading, Spinner, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import DefinitionItem from "../components/DefinitionItem";
+
 import GameAttributes from "../components/GameAttributes";
-import GameScore from "../components/GameScore";
+import GameTrailer from "../components/GameTrailer";
 import useGame from "../hooks/useGame";
 
 const GameDetailPage = () => {
@@ -29,6 +29,9 @@ const GameDetailPage = () => {
         {truncate ? "Show More" : "Show Less"}
       </Button>
       <GameAttributes game={game} />
+      <Box display="flex" justifyContent="center" marginTop={4}>
+        <GameTrailer id={game.id} />
+      </Box>
     </>
   );
 };
