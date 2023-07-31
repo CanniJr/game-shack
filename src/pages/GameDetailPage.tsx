@@ -1,7 +1,9 @@
 import { Button, Heading, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import DefinitionItem from "../components/DefinitionItem";
 import GameAttributes from "../components/GameAttributes";
+import GameScore from "../components/GameScore";
 import useGame from "../hooks/useGame";
 
 const GameDetailPage = () => {
@@ -12,9 +14,6 @@ const GameDetailPage = () => {
   if (isLoading) return <Spinner />;
 
   if (error || !game) throw error;
-
-  const arr = [1, 2, 3, 4];
-  console.log(game);
 
   return (
     <>
@@ -29,11 +28,7 @@ const GameDetailPage = () => {
       >
         {truncate ? "Show More" : "Show Less"}
       </Button>
-      <SimpleGrid columns={2} spacing={20}>
-        {arr.map((atr) => (
-          <GameAttributes />
-        ))}
-      </SimpleGrid>
+      <GameAttributes game={game} />
     </>
   );
 };
