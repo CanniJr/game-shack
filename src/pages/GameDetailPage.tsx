@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 import GameAttributes from "../components/GameAttributes";
-import GameScreenShot from "../components/GameScreenShot";
+import GameScreenShots from "../components/GameScreenShots";
 import GameTrailer from "../components/GameTrailer";
 import useGame from "../hooks/useGame";
 
@@ -37,7 +37,7 @@ const GameDetailPage = () => {
         flexDirection="column"
       >
         <GameTrailer id={game.id} />
-        <GameScreenShot id={game.id} />
+        <GameScreenShots id={game.id} />
       </Box>
     </>
   );

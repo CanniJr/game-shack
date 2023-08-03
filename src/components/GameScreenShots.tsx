@@ -1,11 +1,11 @@
-import { Box, Image, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
+import { Box, Image, SimpleGrid, Text } from "@chakra-ui/react";
 import useScreeShots from "../hooks/useScreenShots";
 
 interface Props {
   id: number;
 }
 
-const GameScreenShot = ({ id }: Props) => {
+const GameScreenShots = ({ id }: Props) => {
   const { data, isLoading, error } = useScreeShots(id);
 
   if (isLoading) return null;
@@ -23,4 +23,4 @@ const GameScreenShot = ({ id }: Props) => {
   );
 };
 
-export default GameScreenShot;
+export default GameScreenShots;
