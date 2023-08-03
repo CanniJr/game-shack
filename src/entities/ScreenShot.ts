@@ -1,4 +1,6 @@
-export interface ScreenShot {
+interface ScreenShot {
   id: number;
   image: string;
 }
+
+export default ScreenShot;
