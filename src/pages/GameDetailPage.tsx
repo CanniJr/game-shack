@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 import GameAttributes from "../components/GameAttributes";
+import GameScreenShot from "../components/GameScreenShot";
 import GameTrailer from "../components/GameTrailer";
 import useGame from "../hooks/useGame";
 
@@ -29,8 +30,14 @@ const GameDetailPage = () => {
         {truncate ? "Show More" : "Show Less"}
       </Button>
       <GameAttributes game={game} />
-      <Box display="flex" justifyContent="center" marginTop={4}>
+      <Box
+        display="flex"
+        justifyContent="center"
+        marginTop={4}
+        flexDirection="column"
+      >
         <GameTrailer id={game.id} />
+        <GameScreenShot id={game.id} />
       </Box>
     </>
   );
