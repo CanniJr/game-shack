@@ -12,7 +12,7 @@ const GameScreenShots = ({ id }: Props) => {
   if (error) throw error;
 
   return (
-    <Box marginTop={10}>
+    <Box>
       <Text fontWeight="bold">Screen Shots</Text>
       <SimpleGrid columns={{ sm: 1, md: 2 }} marginTop={4} spacing={2}>
         {data?.results.map((ss) => (

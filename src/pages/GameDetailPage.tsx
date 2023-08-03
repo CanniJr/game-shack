@@ -1,4 +1,11 @@
-import { Box, Button, Heading, Spinner, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Heading,
+  SimpleGrid,
+  Spinner,
+  Text,
+} from "@chakra-ui/react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -29,16 +36,15 @@ const GameDetailPage = () => {
       >
         {truncate ? "Show More" : "Show Less"}
       </Button>
-      <GameAttributes game={game} />
-      <Box
-        display="flex"
-        justifyContent="center"
-        marginTop={4}
-        flexDirection="column"
-      >
-        <GameTrailer id={game.id} />
-        <GameScreenShots id={game.id} />
-      </Box>
+      <SimpleGrid columns={{ base: 1, md: 2 }}>
+        <Box>
+          <GameAttributes game={game} />
+        </Box>
+        <Box marginTop={4}>
+          <GameTrailer id={game.id} />
+          <GameScreenShots id={game.id} />
+        </Box>
+      </SimpleGrid>
     </>
   );
 };
